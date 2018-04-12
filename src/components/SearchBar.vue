@@ -1,8 +1,10 @@
 <template>
   <div id="search">
-    <input v-model="a.message" type="text">
-    <button v-on:click="submit">搜尋</button>
-    <div>大陸: {{ db[a.message] }}</div>
+    <input v-model="obj.message" type="text">
+    <button v-on:click="$emit('translate', obj.message)">
+      翻譯
+    </button>
+    <div>即時預測: {{ db[obj.message] }}</div>
   </div>
 </template>
 
@@ -12,17 +14,14 @@ import db from '../db.js'
 export default {
   name: 'SearchBar',
   props: {
-    msg: String
+    stickToTop: Boolean
   },
   data: () => {
     return {
-      a: {},
+      obj: {
+        message: ""
+      },
       db
-    }
-  },
-  methods: {
-    submit: function () {
-      this.a.message = db[this.a.message]
     }
   }
 }

@@ -1,16 +1,38 @@
 <template>
   <div id="app">
-    <Main />
+    <Main
+      :stickToTop="obj.stickToTop"
+      v-on:translate="translate"
+    />
+    <ResultContainer :text="obj.result" />
   </div>
 </template>
 
 <script>
 import Main from './components/Main.vue'
+import ResultContainer from './components/ResultContainer.vue'
+
+import db from './db.js'
 
 export default {
   name: 'App',
   components: {
-    Main
+    Main,
+    ResultContainer
+  },
+  data: () => {
+    return {
+      obj: {
+        result: "",
+        stickToTop: false
+      }
+    }
+  },
+  methods: {
+    translate: function (msg) {
+      this.obj.result = db[msg]
+      this.obj.stickToTop = this.obj.result ? true : false
+    }
   }
 }
 </script>

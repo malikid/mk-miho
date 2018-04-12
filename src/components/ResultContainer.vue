@@ -1,12 +1,12 @@
 <template>
-  <img src="../assets/logo.png">
+  <div>大陸：{{text}}</div>
 </template>
 
 <script>
 export default {
-  name: 'Logo',
+  name: 'ResultContainer',
   props: {
-    stickToTop: Boolean
+    text: String
   }
 }
 </script>

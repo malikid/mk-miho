@@ -1,8 +1,11 @@
 <template>
   <div class="main">
-    <Logo />
-    <div>繁體 => 簡體</div>
-    <SearchBar />
+    <Logo :stickToTop="stickToTop" />
+    <div>臺灣 => 大陸</div>
+    <SearchBar
+      :stickToTop="stickToTop"
+      v-on:translate="$emit('translate', $event)"
+    />
   </div>
 </template>
 
@@ -13,7 +16,7 @@ import SearchBar from './SearchBar.vue'
 export default {
   name: 'Main',
   props: {
-    msg: String
+    stickToTop: Boolean
   },
   components: {
     Logo,
