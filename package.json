@@ -1,0 +1,79 @@
+{
+  "name": "mk-miho",
+  "version": "1.0.0",
+  "description": "Translate between different Mandarin-speaking countries and areas.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malikid/mk-miho.git"
+  },
+  "keywords": [
+    "event",
+    "track",
+    "臺灣",
+    "台灣",
+    "香港",
+    "中國",
+    "中国",
+    "新加坡",
+    "馬來西亞",
+    "中文",
+    "華語",
+    "漢語",
+    "汉语",
+    "在地化",
+    "用語",
+    "對照",
+    "講法",
+    "翻譯",
+    "翻译",
+    "mandarin",
+    "chinese",
+    "translator",
+    "locale",
+    "localization",
+    "dialect"
+  ],
+  "author": "MingHo Chang <malikid.chang@gmail.com>, HsiaoYa Lin <hsiaoya425@gmail.com>",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": "https://github.com/malikid/mk-miho/issues"
+  },
+  "homepage": "https://github.com/malikid/mk-miho#readme",
+  "dependencies": {
+    "vue": "^2.5.13"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.6",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.6",
+    "@vue/cli-service": "^3.0.0-beta.6",
+    "vue-template-compiler": "^2.5.13"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
