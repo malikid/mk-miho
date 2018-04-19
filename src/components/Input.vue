@@ -6,7 +6,9 @@
       type="text"
       @keyup.enter="$emit('translate', message)"
     >
-    <button v-on:click="$emit('translate', message)"></button>
+    <button v-on:click="$emit('translate', message)">
+      <img src="../assets/monkey.png">
+    </button>
   </div>
 </template>
 
@@ -45,9 +47,6 @@ input {
 }
 
 button {
-  background-image: url("~../assets/monkey.png");
-  background-repeat: no-repeat;
-  background-size: contain;
   background-color: transparent;
   height: 50px;
   width: 50px;
@@ -57,5 +56,10 @@ button {
 
 button:hover {
   opacity: 0.6;
+}
+
+img {
+  height: 50px;
+  width: 50px;
 }
 </style>
