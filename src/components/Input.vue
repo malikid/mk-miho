@@ -45,7 +45,7 @@ input {
 }
 
 button {
-  background-image: url("../assets/monkey.png");
+  background-image: url("~../assets/monkey.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-color: transparent;
