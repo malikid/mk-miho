@@ -6,7 +6,7 @@
       type="text"
       @keyup.enter="emitTranslate"
     >
-    <Button text="我確定了！" :handler="emitTranslate" />
+    <Button text="ENTER" :handler="emitTranslate" />
   </div>
 </template>
 

@@ -26,7 +26,7 @@
       </select>
       用語
     </div>
-    <Button text="我確定了！" :handler="emitSetFromTo" />
+    <Button text="ENTER" :handler="emitSetFromTo" />
   </div>
 </template>
 
