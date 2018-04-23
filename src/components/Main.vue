@@ -123,5 +123,9 @@ export default {
     opacity: 0.7;
     transition: opacity 0.2s;
   }
+
+  .changing {
+    opacity: 0;
+  }
 }
 </style>
