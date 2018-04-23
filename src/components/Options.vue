@@ -1,57 +1,84 @@
 <template>
   <div id="optionsContainer">
-    <div
-      class="option"
-      v-bind:key="'from-' + fromOptionKey"
-      v-for="fromOptionKey in fromToOptionsKeys"
-    >
-      <div
-        v-bind:key="'to-' + toOptionKey"
-        v-for="toOptionKey in fromToOptionsKeys"
-        v-if="fromOptionKey != toOptionKey"
-        v-on:click="$emit('setFromTo', {from: fromOptionKey, to: toOptionKey})"
-      >
-        從
-        <span>{{fromToOptions[fromOptionKey]}}</span>
-        詞彙找
-        <span>{{fromToOptions[toOptionKey]}}</span>
-        用語
-      </div>
+    <div class="options">
+      從
+      <select autofocus v-model="from" @keyup.enter="emitSetFromTo">
+        <option
+          v-for="fromOptionKey in fromOptionsKeys"
+          v-bind:key="'from-' + fromOptionKey"
+          :selected="fromOptionKey == defaultFrom"
+          :value="fromOptionKey"
+        >
+          {{fromToOptions[fromOptionKey]}}
+        </option>
+      </select>
+      詞彙找
+      <select v-model="to" @keyup.enter="emitSetFromTo">
+        <option
+          v-for="toOptionKey in toOptionsKeys"
+          v-bind:key="'to-' + toOptionKey"
+          :disabled="toOptionKey === from"
+          :value="toOptionKey"
+          :selected="toOptionKey == defaultTo"
+        >
+          {{fromToOptions[toOptionKey]}}
+        </option>
+      </select>
+      用語
     </div>
+    <Button text="我確定了！" :handler="emitSetFromTo" />
   </div>
 </template>
 
 <script>
 import {fromToOptions} from "../config.js"
+import Button from "./Button.vue"
 
 export default {
   name: 'Options',
+  components: {
+    Button
+  },
   data: () => ({
     fromToOptions,
-    fromToOptionsKeys: Object.keys(fromToOptions)
-  })
+    defaultFrom: "taiwan",
+    from: "taiwan",
+    defaultTo: "china",
+    to: "china",
+  }),
+  computed: {
+    fromOptionsKeys: function() {
+      return Object.keys(fromToOptions)
+    },
+    toOptionsKeys: function() {
+      const filteredKeys = this.fromOptionsKeys.filter(key => (key != this.from))
+      this.to = filteredKeys[0];
+      return filteredKeys
+    }
+  },
+  methods: {
+    emitSetFromTo: function() {
+      this.$emit('setFromTo', {from: this.from, to: this.to})
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#optionsContainer {
-  display: flex;
-  flex-direction: column;
+.options {
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
-.option {
-  flex: 1;
-  margin: 5px;
-  padding: 10px;
-  border: 1px grey solid;
-  background-color: white;
+select {
+  border: 1px black solid;
+  background-color: transparent;
   font-size: 30px;
-  opacity: 0.8;
   cursor: pointer;
 }
 
-.option:hover {
-  opacity: 0.6;
+select:hover {
+  border-width: 2px;
 }
 </style>

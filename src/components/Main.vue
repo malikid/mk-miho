@@ -87,7 +87,7 @@ export default {
 
 .panel {
   margin-left: 100px;
-  width: 400px;
+  width: 450px;
   height: 220px;
   display: flex;
   flex-direction: column;

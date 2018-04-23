@@ -4,23 +4,28 @@
       autofocus
       v-model="message"
       type="text"
-      @keyup.enter="$emit('translate', message)"
+      @keyup.enter="emitTranslate"
     >
-    <button v-on:click="$emit('translate', message)">
-      <img src="../assets/monkey.png">
-    </button>
+    <Button text="我確定了！" :handler="emitTranslate" />
   </div>
 </template>
 
 <script>
+import Button from "./Button.vue"
+
 export default {
   name: 'Input',
-  props: {
-    stickToTop: Boolean
+  components: {
+    Button
   },
   data: () => {
     return {
       message: ""
+    }
+  },
+  methods: {
+    emitTranslate: function() {
+      this.$emit('translate', this.message)
     }
   }
 }
@@ -34,7 +39,8 @@ export default {
   align-items: center;
 }
 
-#search * {
+input {
+  height: 100%;
   font-size: 30px;
 }
 
@@ -44,22 +50,5 @@ input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid grey;
-}
-
-button {
-  background-color: transparent;
-  height: 50px;
-  width: 50px;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.6;
-}
-
-img {
-  height: 50px;
-  width: 50px;
 }
 </style>
