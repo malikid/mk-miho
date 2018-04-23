@@ -36,12 +36,7 @@ export default {
 #search {
   display: flex;
   flex-direction: row;
-  align-items: center;
-}
-
-input {
-  height: 100%;
-  font-size: 30px;
+  align-items: flex-end;
 }
 
 input {
@@ -50,5 +45,17 @@ input {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid grey;
+  font-size: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  input {
+    margin-right: 10px;
+    width: 190px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    font-size: 20px;
+  }
 }
 </style>

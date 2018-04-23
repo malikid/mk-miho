@@ -31,4 +31,11 @@ export default {
   margin: 30px 0;
   font-size: 25px;
 }
+
+@media only screen and (max-width: 768px) {
+  #question {
+    margin: 30px 0;
+    font-size: 18px;
+  }
+}
 </style>

@@ -81,4 +81,18 @@ select {
 select:hover {
   border-width: 2px;
 }
+
+@media only screen and (max-width: 768px) {
+  .options {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  select {
+    border: 1px black solid;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}
 </style>

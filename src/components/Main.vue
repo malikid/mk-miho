@@ -74,7 +74,6 @@ export default {
   height: 100%;
   background-color: #FFE75B;
   background-image: radial-gradient(circle at 55% 50%, yellow 30%, orange);
-  border: 0.5px grey solid;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -91,13 +90,38 @@ export default {
   height: 220px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: flex-start;
+  align-items: flex-start;
   opacity: 0.7;
   transition: opacity 0.2s;
 }
 
 .changing {
   opacity: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .main {
+    width: 100%;
+    height: 100%;
+    background-color: #FFE75B;
+    background-image: radial-gradient(circle at 50% 60%, yellow 30%, orange);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .panel {
+    margin-left: 0;
+    width: 270px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
 }
 </style>

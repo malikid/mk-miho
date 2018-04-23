@@ -28,11 +28,31 @@ button {
   background-color: #00FFFF;
   padding: 10px;
   border: none;
-  font-size: 25px;
+  font-size: 22px;
+  font-weight: bold;
   cursor: pointer;
+}
+
+button::first-letter {
+  font-size: 25px;
 }
 
 button:hover {
   opacity: 0.6;
+}
+
+@media only screen and (max-width: 768px) {
+  button {
+    background-color: #00FFFF;
+    padding: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  button::first-letter {
+    font-size: 18px;
+  }
 }
 </style>
